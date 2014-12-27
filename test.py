@@ -1,14 +1,12 @@
-from os import _exit
-import socket
+from os import chdir
 
 token = object()
 list1 = [token] * 886357
-list2 = [token] * 333539
 
-socket.socket()
+chdir('.')
 
-# import sys
-# print sys.getrefcount(token)
-list3 = [token]
+list1.append(token)
+list1.append(token)
+list1.append(token)
 
-_exit(0)
+chdir('.')
