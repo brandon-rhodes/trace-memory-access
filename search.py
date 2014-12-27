@@ -3,15 +3,45 @@ import struct
 def int_bytes(n):
     return struct.pack('I', n)
 
-if __name__ == '__main__':
+def main():
     with open('gdb_record.out', 'rb') as f:
         data = f.read()
 
-    # n = 886357 + 1
     n = 886357
+
+    if True:
+        lower = n - 10
+        upper = n + 10
+
+        for i in range(0, len(data), 4):
+            excerpt = data[i:i+4]
+            value, = struct.unpack('I', excerpt)
+            if lower <= value <= upper:
+                print hex(i), value
+
+        print '-' * 20
+
+    return
+
     for i in range(n - 10, n + 10):
         count = data.count(int_bytes(i))
         print i, count, '*' * count
+
+    print
+
+    pattern = int_bytes(886359)
+    i = -1
+    while True:
+        old_i = i
+        i = data.find(pattern, i + 1)
+        if i == -1:
+            break
+        if old_i != -1:
+            print '+', i - old_i, '=',
+        print hex(i)
+
+    return
+
     n += 7
     pattern = int_bytes(n)
     step = struct.calcsize('I')
@@ -27,3 +57,6 @@ if __name__ == '__main__':
         if i == j:
             print '===>',
         print hex(j), hex(n)
+
+if __name__ == '__main__':
+    main()
