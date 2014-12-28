@@ -1,5 +1,7 @@
 import struct
 
+MAGIC = struct.pack('!I', 0x20091016)
+
 def int_bytes(n):
     return struct.pack('I', n)
 
@@ -13,13 +15,43 @@ def dump(data, offset):
             print '===>',
         print hex(i), hex(n)
 
+record_types = ['END', 'REG', 'MEM']
+
 def main():
     with open('gdb_record.out', 'rb') as f:
         data = f.read()
 
-    n = 886357
+    assert data.count(MAGIC) == 1
+    i = data.index(MAGIC) + len(MAGIC)
 
-    if False:
+    while True:
+
+        record_type = record_types[ord(data[i])]
+        i += 1
+        if record_type == 'END':
+            signal, count = struct.unpack('II', data[i:i+8])
+            i += 8
+            if count == 0:
+                break
+            print record_type, signal, count
+            print
+        elif record_type == 'REG':
+            register, value = struct.unpack('!II', data[i:i+8])
+            i += 8
+            print record_type, register, value
+        elif record_type == 'MEM':
+            length, address = struct.unpack('!IQ', data[i:i+12])
+            i += 12
+            value = data[i:i+length]
+            i += length
+            print record_type, length, hex(address), repr(value)
+        else:
+            print 'Unknown record type', record_type
+            return
+
+    return
+
+    if True:
         lower = n - 10
         upper = n + 10
 
@@ -31,8 +63,8 @@ def main():
 
         print '-' * 20
 
-    dump(data, 0xefc55c)
-    dump(data, 0xefff48)
+    dump(data, 0xd2d4f4)
+    dump(data, 0xd30ee0)
 
     print struct.calcsize('L')
 
