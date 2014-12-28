@@ -3,13 +3,23 @@ import struct
 def int_bytes(n):
     return struct.pack('I', n)
 
+def dump(data, offset):
+    step = struct.calcsize('I')
+    print 'Step size:', step, '-' * 40
+    for i in range(offset - 15 * step, offset + 25 * step, step):
+        excerpt = data[i:i+step]
+        n, = struct.unpack('I', excerpt)
+        if i == offset:
+            print '===>',
+        print hex(i), hex(n)
+
 def main():
     with open('gdb_record.out', 'rb') as f:
         data = f.read()
 
     n = 886357
 
-    if True:
+    if False:
         lower = n - 10
         upper = n + 10
 
@@ -21,42 +31,10 @@ def main():
 
         print '-' * 20
 
-    return
+    dump(data, 0xefc55c)
+    dump(data, 0xefff48)
 
-    for i in range(n - 10, n + 10):
-        count = data.count(int_bytes(i))
-        print i, count, '*' * count
-
-    print
-
-    pattern = int_bytes(886359)
-    i = -1
-    while True:
-        old_i = i
-        i = data.find(pattern, i + 1)
-        if i == -1:
-            break
-        if old_i != -1:
-            print '+', i - old_i, '=',
-        print hex(i)
-
-    return
-
-    n += 7
-    pattern = int_bytes(n)
-    step = struct.calcsize('I')
-    print 'Step size:', step, ' Target:', hex(n)
-    count = data.count(pattern)
-    print 'Count:', count
-    assert count == 1
-    i = data.index(pattern)
-    assert i % 4 == 0
-    for j in range(i - 15 * step, i + 25 * step, step):
-        excerpt = data[j:j + step]
-        n, = struct.unpack('I', excerpt)
-        if i == j:
-            print '===>',
-        print hex(j), hex(n)
+    print struct.calcsize('L')
 
 if __name__ == '__main__':
     main()
