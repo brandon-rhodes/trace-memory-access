@@ -12,9 +12,5 @@ c
 
 # Should encounter breakpoint here.
 
-record goto begin
-record instruction-history
-
-
-#record save gdb_record.out
+record save gdb_record.out
 quit
