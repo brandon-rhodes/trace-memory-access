@@ -1,0 +1,43 @@
+GNU gdb (Ubuntu 7.8-1ubuntu4) 7.8.0.20141001-cvs
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from pwd...(no debugging symbols found)...done.
+(gdb) Breakpoint 1 at 0x8048ee0
+(gdb) Starting program: /bin/pwd 
+
+Breakpoint 1, __getcwd (buf=0x0, size=0)
+    at ../sysdeps/unix/sysv/linux/getcwd.c:49
+49	../sysdeps/unix/sysv/linux/getcwd.c: No such file or directory.
+(gdb) $1 = 100
+(gdb) eax            0x0	0
+ecx            0x0	0
+edx            0xb7fbe17c	-1208229508
+ebx            0xbffff544	-1073744572
+esp            0xbffff38c	0xbffff38c
+ebp            0xbffff498	0xbffff498
+esi            0x1	1
+edi            0x0	0
+eip            0xb7eefd60	0xb7eefd60 <__getcwd>
+eflags         0x246	[ PF ZF IF ]
+cs             0x73	115
+ss             0x7b	123
+ds             0x7b	123
+es             0x7b	123
+fs             0x0	0
+gs             0x33	51
+(gdb) A debugging session is active.
+
+	Inferior 1 [process 31454] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
