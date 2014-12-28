@@ -29,7 +29,7 @@ def main():
         record_type = record_types[ord(data[i])]
         i += 1
         if record_type == 'END':
-            signal, count = struct.unpack('II', data[i:i+8])
+            signal, count = struct.unpack('!II', data[i:i+8])
             i += 8
             if count == 0:
                 break
