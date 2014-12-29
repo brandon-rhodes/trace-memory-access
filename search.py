@@ -15,11 +15,22 @@ def dump(data, offset):
             print '===>',
         print hex(i), hex(n)
 
+def load_registers():
+    with open('registers.out') as f:
+        data = f.read()
+    pieces = data.split('\n(gdb) ')
+    registers = {}
+    for i, line in enumerate(pieces[4].splitlines()):
+        registers[i] = line.split()[0]
+    return registers
+
 record_types = ['END', 'REG', 'MEM']
 
 def main():
     with open('gdb_record.out', 'rb') as f:
         data = f.read()
+
+    registers = load_registers()
 
     assert data.count(MAGIC) == 1
     i = data.index(MAGIC) + len(MAGIC)
@@ -36,7 +47,9 @@ def main():
             print record_type, signal, count
             print
         elif record_type == 'REG':
-            register, value = struct.unpack('!II', data[i:i+8])
+            register_id, = struct.unpack('!I', data[i:i+4])
+            register = registers[register_id]
+            value, = struct.unpack('I', data[i+4:i+8])
             i += 8
             print record_type, register, value
         elif record_type == 'MEM':
