@@ -1,9 +1,16 @@
 file python2.7
 break chdir
-# display/i $pc
 run test.py
 
 # Should encounter breakpoint here.
+
+display/i $pc
+x/i $pc
+si
+si
+si
+si
+quit
 
 # set debug record 2
 set record full insn-number-max unlimited
