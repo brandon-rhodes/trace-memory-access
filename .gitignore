@@ -2,3 +2,4 @@
 gdb_record.out
 sde-debugtrace-out.txt
 stage/
+trace.out
