@@ -11,4 +11,4 @@ fi
 
 cp site.py stage/lib/python2.7/site.py
 
-exec stage/bin/python2.7
+exec ~/sde-external-7.8.0-2014-10-02-lin/sde -debugtrace -- stage/bin/python2.7
