@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 gdb_record.out
+sde-debugtrace-out.txt
 stage/
