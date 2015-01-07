@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#gdb -batch -x trace.gdb
-
 if [ ! -f stage/bin/python2.7 ] ;then
     mkdir -p stage/bin
     mkdir -p stage/lib/python2.7

@@ -1,0 +1,8 @@
+
+https://software.intel.com/en-us/articles/intel-software-development-emulator
+
+Full trace of python -c '1 + 1' produced 11G and took 1h.
+Because Python imports and compiles so many modules.
+So: provide fake version of first module it imports.
+
+
