@@ -1,4 +1,4 @@
-
+import subprocess
 
 def read_addresses(trace_file):
     addresses = []
@@ -21,16 +21,50 @@ def read_maps(maps_file):
         regions.append((start, end, name))
     return regions
 
-def classify(addresses, regions):
+#nm -D -S --defined-only stage/bin/python2.7
+#readelf -s stage/bin/python2.7  ->  # / addr / size
+
+def read_symbols(binary_path):
+    output = subprocess.check_output(['objdump', '-x', binary_path])
+    for line in output.splitlines():
+        words = line.split()
+        if len(words) > 2 and words[1] == '.text':
+            vma = int(words[3], 16)
+            break
+    output = subprocess.check_output([
+        'nm', '-D', '-S', '--defined-only', binary_path])
+    symbols = []
+    for line in output.splitlines():
+        fields = line.split()
+        if len(fields) < 4:
+            continue
+        offset, size, flag, name = fields
+        offset = int(offset, 16) - vma
+        size = int(size, 16)
+        symbols.append([offset, offset + size, name])
+    return symbols
+
+def classify(addresses, regions, symbols):
     for address in addresses:
         for start, end, name in regions:
             if start <= address < end:
-                print hex(address), name
                 break
         else:
             print hex(address), 'ADDRESS NOT IN ANY MEMORY MAP'
+            continue
+        print hex(address), name,
+        if name.endswith('/python2.7'):
+            offset = address - start
+            for start, end, name in symbols:
+                if start <= offset < end:
+                    print name,
+                    break
+            else:
+                print 'UNKNOWN',
+        print
 
 if __name__ == '__main__':
     addresses = read_addresses(open('trace.out'))
     regions = read_maps(open('maps.out'))
-    classify(addresses, regions)
+    symbols = read_symbols('stage/bin/python2.7')
+    classify(addresses, regions, symbols)
