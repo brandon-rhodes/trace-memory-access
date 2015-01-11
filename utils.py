@@ -6,7 +6,7 @@ def read_addresses(trace_file):
         fields = line.split()
         event = fields[1]
         addrstr = fields[4] if event == 'Read' else fields[2]
-        address = int(addrstr.split('x')[1], 16)
+        address = int(addrstr.split('0x')[1], 16)
         addresses.append(address)
     return addresses
 
@@ -23,12 +23,13 @@ def read_maps(maps_file):
     return regions
 
 def read_symbols(binary_path):
-    cmd = ['objdump', '-x', binary_path]
+    cmd = ['readelf', '-l', binary_path]
     output = subprocess.check_output(cmd)
     for line in output.splitlines():
-        words = line.split()
-        if len(words) > 2 and words[1] == '.text':
-            vma = int(words[3], 16)
+        line = line.strip()
+        if line.startswith('LOAD') and ('RW' not in line):
+            words = line.split()
+            vma = int(words[3].lstrip('0x'), 16)
             break
 
     cmd = ['readelf', '-s', binary_path]
@@ -48,6 +49,8 @@ def read_symbols(binary_path):
         offset = int(fields[1], 16) - vma
         size = int(fields[2])
         name = fields[7]
+        if name == 'PyEval_EvalFrameEx':
+            print 'PyEval_EvalFrameEx', offset
         symbols.append([offset, offset + size, name])
 
     return symbols
@@ -64,6 +67,7 @@ def classify(addresses, regions, symbols):
         could_be_text_segment = (permissions[1] == '-')
         if name.endswith('/python2.7') and could_be_text_segment:
             offset = address - start
+            print offset,
             for start, end, name in symbols:
                 if start <= offset < end:
                     print name,
