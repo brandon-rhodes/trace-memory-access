@@ -17,43 +17,52 @@ def read_maps(maps_file):
         start, end = fields[0].split('-')
         start = int(start, 16)
         end = int(end, 16)
+        permissions = fields[1]
         name = fields[5] if len(fields) > 5 else '?'
-        regions.append((start, end, name))
+        regions.append((start, end, permissions, name))
     return regions
 
-#nm -D -S --defined-only stage/bin/python2.7
-#readelf -s stage/bin/python2.7  ->  # / addr / size
-
 def read_symbols(binary_path):
-    output = subprocess.check_output(['objdump', '-x', binary_path])
+    cmd = ['objdump', '-x', binary_path]
+    output = subprocess.check_output(cmd)
     for line in output.splitlines():
         words = line.split()
         if len(words) > 2 and words[1] == '.text':
             vma = int(words[3], 16)
             break
-    output = subprocess.check_output([
-        'nm', '-D', '-S', '--defined-only', binary_path])
+
+    cmd = ['readelf', '-s', binary_path]
+    output = subprocess.check_output(cmd)
     symbols = []
-    for line in output.splitlines():
+    lines = iter(output.splitlines())
+    line = next(lines)
+    while 'Num:' not in line:
+        line = next(lines)
+    for line in lines:
         fields = line.split()
-        if len(fields) < 4:
+        if fields[6] == 'UND':
             continue
-        offset, size, flag, name = fields
-        offset = int(offset, 16) - vma
-        size = int(size, 16)
+
+        #    300: 083ae3c0   196 OBJECT  GLOBAL DEFAULT   24 PyTraceBack_Type
+
+        offset = int(fields[1], 16) - vma
+        size = int(fields[2])
+        name = fields[7]
         symbols.append([offset, offset + size, name])
+
     return symbols
 
 def classify(addresses, regions, symbols):
     for address in addresses:
-        for start, end, name in regions:
+        for start, end, permissions, name in regions:
             if start <= address < end:
                 break
         else:
             print hex(address), 'ADDRESS NOT IN ANY MEMORY MAP'
             continue
-        print hex(address), name,
-        if name.endswith('/python2.7'):
+        print hex(address), permissions, name,
+        could_be_text_segment = (permissions[1] == '-')
+        if name.endswith('/python2.7') and could_be_text_segment:
             offset = address - start
             for start, end, name in symbols:
                 if start <= offset < end:
