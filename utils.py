@@ -65,7 +65,7 @@ def classify(addresses, regions, symbols):
             continue
         print hex(address), permissions, name,
         could_be_text_segment = (permissions[1] == '-')
-        if name.endswith('/python2.7') and could_be_text_segment:
+        if name.endswith('/python') and could_be_text_segment:
             offset = address - start
             print offset,
             for start, end, name in symbols:
@@ -79,5 +79,5 @@ def classify(addresses, regions, symbols):
 if __name__ == '__main__':
     addresses = read_addresses(open('trace.out'))
     regions = read_maps(open('maps.out'))
-    symbols = read_symbols('stage/bin/python2.7')
+    symbols = read_symbols('stage/python')
     classify(addresses, regions, symbols)
