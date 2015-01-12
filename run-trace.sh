@@ -13,6 +13,9 @@ fi
 
 cp target.py $LIB/encodings.py
 
+unset PYTHONDONTWRITEBYTECODE
+$PYTHON -m py_compile stage/lib/python3.4/encodings.py
+
 if [ $(cat /proc/sys/kernel/yama/ptrace_scope) = 1 ]
 then
     echo

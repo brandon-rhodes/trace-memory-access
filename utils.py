@@ -1,14 +1,28 @@
 import subprocess
 
-def read_addresses(trace_file):
-    addresses = []
+def addr_of(s):
+    """Where `s` could be '*(UINT32*)0xbfafa080' or '0x2' or '0'."""
+    if '0x' in s:
+        s = s.split('0x')[1]
+    return int(s, 16)
+
+def read_events(trace_file):
     for line in trace_file:
         fields = line.split()
         event = fields[1]
-        addrstr = fields[4] if event == 'Read' else fields[2]
-        address = int(addrstr.split('0x')[1], 16)
-        addresses.append(address)
-    return addresses
+        f2 = addr_of(fields[2])
+        if event == 'INS':
+            address = f2
+            value = None
+        else:
+            f4 = addr_of(fields[4])
+            if event == 'Read':
+                address = f4
+                value = f2
+            else:
+                address = f2
+                value = f4
+        yield (event, address, value)
 
 def read_maps(maps_file):
     regions = []
@@ -49,21 +63,26 @@ def read_symbols(binary_path):
         offset = int(fields[1], 16) - vma
         size = int(fields[2])
         name = fields[7]
-        if name == 'PyEval_EvalFrameEx':
-            print 'PyEval_EvalFrameEx', offset
+        # if name == 'PyEval_EvalFrameEx':
+        #     print 'PyEval_EvalFrameEx', offset
         symbols.append([offset, offset + size, name])
 
     return symbols
 
-def classify(addresses, regions, symbols):
-    for address in addresses:
+def classify(events, regions, symbols):
+    for event, address, value in events:
         for start, end, permissions, name in regions:
             if start <= address < end:
                 break
         else:
             print hex(address), 'ADDRESS NOT IN ANY MEMORY MAP'
             continue
-        print hex(address), permissions, name,
+        if value is None:
+            value = '-'
+        else:
+            value = '0x%x=%d' % (value, value)
+        print event.ljust(4), hex(address).rstrip('L'),
+        print value, permissions, name,
         could_be_text_segment = (permissions[1] == '-')
         if name.endswith('/python') and could_be_text_segment:
             offset = address - start
@@ -73,11 +92,11 @@ def classify(addresses, regions, symbols):
                     print name,
                     break
             else:
-                print '(static function)',
+                print '<unnamed_text>',
         print
 
 if __name__ == '__main__':
-    addresses = read_addresses(open('trace.out'))
+    events = list(read_events(open('trace.out')))
     regions = read_maps(open('maps.out'))
     symbols = read_symbols('stage/python')
-    classify(addresses, regions, symbols)
+    classify(events, regions, symbols)

@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+opcode order expected:
+
+
+
+
+
+
+call_funct 94                            94
+load_globa                   61 61
+binary_add                            19
+binary_mul             15
+pop_top       05          05
+load_const       03 03             03
