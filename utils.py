@@ -73,7 +73,7 @@ def classify(addresses, regions, symbols):
                     print name,
                     break
             else:
-                print 'UNKNOWN',
+                print '(static function)',
         print
 
 if __name__ == '__main__':
