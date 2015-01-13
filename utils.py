@@ -32,7 +32,7 @@ def read_maps(maps_file):
         start = int(start, 16)
         end = int(end, 16)
         permissions = fields[1]
-        name = fields[5] if len(fields) > 5 else '?'
+        name = fields[5] if len(fields) > 5 else '[anonymous_%s]' % permissions
         regions.append((start, end, permissions, name))
     return regions
 
