@@ -5,98 +5,96 @@
 0192a000-01956000 rwxp 00000000 00:00 0 
 01956000-01957000 ---p 00000000 00:00 0 
 01957000-01989000 rwxp 00000000 00:00 0 
-08048000-08434000 r-xp 00000000 00:25 4177906    /home/brandon/trace/stage/python
-08434000-08435000 r-xp 003eb000 00:25 4177906    /home/brandon/trace/stage/python
-08435000-084ab000 rwxp 003ec000 00:25 4177906    /home/brandon/trace/stage/python
+08048000-08434000 r-xp 00000000 00:25 4077032    /home/brandon/trace/stage/python
+08434000-08435000 r-xp 003eb000 00:25 4077032    /home/brandon/trace/stage/python
+08435000-084ab000 rwxp 003ec000 00:25 4077032    /home/brandon/trace/stage/python
 084ab000-084c2000 rwxp 00000000 00:00 0 
-08fb0000-08ff2000 rwxp 00000000 00:00 0          [heap]
-b34d3000-b34d4000 rwxp 00000000 00:00 0 
-b3527000-b3528000 rwxp 00000000 00:00 0 
-b3554000-b4b7e000 rwxp 00000000 00:00 0 
-b4b7e000-b4caf000 r-xp 00307000 fc:00 3152013    /usr/lib/locale/locale-archive
-b4caf000-b4eaf000 r-xp 00000000 fc:00 3152013    /usr/lib/locale/locale-archive
-b4eaf000-b4ec6000 rwxp 00000000 00:00 0 
-b4ec6000-b4ef8000 rwxp 00000000 00:00 0 
-b4ef8000-b4eff000 r-xs 00000000 fc:00 3158202    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
-b4eff000-b4f34000 rwxp 00000000 00:00 0 
-b4f34000-b4f74000 r-xp 00477000 fc:00 3152013    /usr/lib/locale/locale-archive
-b4f74000-b502a000 rwxp 00000000 00:00 0 
-b502a000-b504b000 rwxp 00000000 00:00 0 
-b504b000-b504c000 r-xp 005f2000 fc:00 3152013    /usr/lib/locale/locale-archive
-b504c000-b506f000 rwxp 00000000 00:00 0 
-b506f000-b507e000 rwxp 00000000 00:00 0 
-b507e000-b5156000 rwxp 00000000 00:00 0 
-b5156000-b5180000 rwxp 00000000 00:00 0 
-b5180000-b5195000 rwxp 00000000 00:00 0 
-b5195000-b51d9000 r-xp 00000000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b51d9000-b51da000 r-xp 00043000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b51da000-b51db000 rwxp 00044000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b51db000-b5224000 rwxp 00000000 00:00 0 
-b5224000-b522f000 rwxp 00000000 00:00 0 
-b522f000-b5238000 rwxp 00000000 00:00 0 
-b5238000-b525e000 r-xp 00000000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
-b525e000-b5260000 r-xp 00026000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
-b5260000-b5261000 rwxp 00028000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
-b5261000-b5409000 r-xp 00000000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b5409000-b540b000 r-xp 001a7000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b540b000-b540c000 rwxp 001a9000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b540c000-b542c000 rwxp 00000000 00:00 0 
-b542c000-b542f000 rwxp 00000000 00:00 0 
-b542f000-b5430000 rwxp 00000000 00:00 0 
-b5430000-b5448000 r-xp 00000000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
-b5448000-b5449000 r-xp 00017000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
-b5449000-b544a000 rwxp 00018000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
-b544a000-b545f000 rwxp 00000000 00:00 0 
-b545f000-b5476000 rwxp 00000000 00:00 0 
-b5476000-b5478000 r-xp 00000000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
-b5478000-b5479000 r-xp 00001000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
-b5479000-b547a000 rwxp 00002000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
-b547a000-b547d000 r-xp 00000000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b547d000-b547e000 r-xp 00002000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b547e000-b547f000 rwxp 00003000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b547f000-b54a2000 rwxp 00000000 00:00 0 
-b54a2000-b54a9000 rwxp 00000000 00:00 0 
-b54a9000-b54c1000 r-xp 00000000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
-b54c1000-b54c3000 r-xp 00017000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
-b54c3000-b54c4000 rwxp 00019000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
-b54c4000-b54ca000 rwxp 00000000 00:00 0 
-b54ca000-b54dc000 rwxp 00000000 00:00 0 
-b54dc000-b54e1000 rwxp 00000000 00:00 0 
-b54e1000-b6788000 rwxp 00000000 00:00 0          [stack:10060]
-b6788000-b67c6000 r-xp 00000000 00:25 4172302    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libdwarf.so
-b67c6000-b67c7000 rwxp 0003e000 00:25 4172302    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libdwarf.so
-b67c7000-b70b3000 r-xp 00000000 00:25 4172299    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/sde-mix-mt.so
-b70b3000-b7100000 rwxp 008ec000 00:25 4172299    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/sde-mix-mt.so
-b7100000-b7396000 rwxp 00000000 00:00 0 
-b7396000-b753e000 r-xp 00000000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b753e000-b7540000 r-xp 001a7000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b7540000-b7541000 rwxp 001a9000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
-b7541000-b7544000 rwxp 00000000 00:00 0 
-b7544000-b755d000 r-xp 00000000 00:25 4172309    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libgcc_s.so.1
-b755d000-b755e000 rwxp 00019000 00:25 4172309    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libgcc_s.so.1
-b755e000-b75a2000 r-xp 00000000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b75a2000-b75a3000 r-xp 00043000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b75a3000-b75a4000 rwxp 00044000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
-b75a4000-b767e000 r-xp 00000000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
-b767e000-b7682000 r-xp 000da000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
-b7682000-b7683000 rwxp 000de000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
-b7683000-b768a000 rwxp 00000000 00:00 0 
-b768a000-b768d000 r-xp 00000000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b768d000-b768e000 r-xp 00002000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b768e000-b768f000 rwxp 00003000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
-b768f000-b7691000 rwxp 00000000 00:00 0 
-b7691000-b7697000 rwxp 00000000 00:00 0 
-b7697000-b76ad000 r-xp 00000000 00:25 4172304    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libelf.so.0.8.13
-b76ad000-b76ae000 rwxp 00015000 00:25 4172304    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libelf.so.0.8.13
-b76ae000-b76b3000 rwxp 00000000 00:00 0 
-b76b3000-b76bf000 rwxp 00000000 00:00 0 
-b76c0000-b76c4000 rwxp 00000000 00:00 0 
-b76c4000-b76e4000 r-xp 00000000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-b76e4000-b76e5000 r-xp 0001f000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-b76e5000-b76e6000 rwxp 00020000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-b76e6000-b76e7000 r-xp 00000000 00:00 0          [vdso]
-b76e7000-b76e9000 r--p 00000000 00:00 0          [vvar]
-b76e9000-b7709000 r-xp 00000000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-b7709000-b770a000 r-xp 0001f000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-b770a000-b770b000 rwxp 00020000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
-bfadb000-bfafc000 rw-p 00000000 00:00 0 
+08f8c000-08fad000 rwxp 00000000 00:00 0          [heap]
+b3c07000-b4b7b000 rwxp 00000000 00:00 0 
+b4b7b000-b4cac000 r-xp 00307000 fc:00 3152013    /usr/lib/locale/locale-archive
+b4cac000-b4eac000 r-xp 00000000 fc:00 3152013    /usr/lib/locale/locale-archive
+b4eac000-b4ec3000 rwxp 00000000 00:00 0 
+b4ec3000-b4ee4000 rwxp 00000000 00:00 0 
+b4ee4000-b4eeb000 r-xs 00000000 fc:00 3158202    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+b4eeb000-b4f25000 rwxp 00000000 00:00 0 
+b4f25000-b4f65000 r-xp 00477000 fc:00 3152013    /usr/lib/locale/locale-archive
+b4f65000-b5027000 rwxp 00000000 00:00 0 
+b5027000-b5045000 rwxp 00000000 00:00 0 
+b5045000-b5046000 r-xp 005f2000 fc:00 3152013    /usr/lib/locale/locale-archive
+b5046000-b506c000 rwxp 00000000 00:00 0 
+b506c000-b507b000 rwxp 00000000 00:00 0 
+b507b000-b5153000 rwxp 00000000 00:00 0 
+b5153000-b517d000 rwxp 00000000 00:00 0 
+b517d000-b5192000 rwxp 00000000 00:00 0 
+b5192000-b51d6000 r-xp 00000000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b51d6000-b51d7000 r-xp 00043000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b51d7000-b51d8000 rwxp 00044000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b51d8000-b5221000 rwxp 00000000 00:00 0 
+b5221000-b522c000 rwxp 00000000 00:00 0 
+b522c000-b5235000 rwxp 00000000 00:00 0 
+b5235000-b525b000 r-xp 00000000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
+b525b000-b525d000 r-xp 00026000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
+b525d000-b525e000 rwxp 00028000 fc:00 132221     /lib/i386-linux-gnu/libexpat.so.1.6.0
+b525e000-b5406000 r-xp 00000000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b5406000-b5408000 r-xp 001a7000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b5408000-b5409000 rwxp 001a9000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b5409000-b5429000 rwxp 00000000 00:00 0 
+b5429000-b542c000 rwxp 00000000 00:00 0 
+b542c000-b542d000 rwxp 00000000 00:00 0 
+b542d000-b5445000 r-xp 00000000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
+b5445000-b5446000 r-xp 00017000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
+b5446000-b5447000 rwxp 00018000 fc:00 131348     /lib/i386-linux-gnu/libz.so.1.2.8
+b5447000-b545c000 rwxp 00000000 00:00 0 
+b545c000-b5473000 rwxp 00000000 00:00 0 
+b5473000-b5475000 r-xp 00000000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
+b5475000-b5476000 r-xp 00001000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
+b5476000-b5477000 rwxp 00002000 fc:00 240217     /lib/i386-linux-gnu/libutil-2.19.so
+b5477000-b547a000 r-xp 00000000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b547a000-b547b000 r-xp 00002000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b547b000-b547c000 rwxp 00003000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b547c000-b549f000 rwxp 00000000 00:00 0 
+b549f000-b54a6000 rwxp 00000000 00:00 0 
+b54a6000-b54be000 r-xp 00000000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
+b54be000-b54c0000 r-xp 00017000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
+b54c0000-b54c1000 rwxp 00019000 fc:00 240212     /lib/i386-linux-gnu/libpthread-2.19.so
+b54c1000-b54c7000 rwxp 00000000 00:00 0 
+b54c7000-b54d9000 rwxp 00000000 00:00 0 
+b54d9000-b54de000 rwxp 00000000 00:00 0 
+b54de000-b6785000 rwxp 00000000 00:00 0          [stack:28581]
+b6785000-b67c3000 r-xp 00000000 00:25 4172302    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libdwarf.so
+b67c3000-b67c4000 rwxp 0003e000 00:25 4172302    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libdwarf.so
+b67c4000-b70b0000 r-xp 00000000 00:25 4172299    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/sde-mix-mt.so
+b70b0000-b70fd000 rwxp 008ec000 00:25 4172299    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/sde-mix-mt.so
+b70fd000-b7393000 rwxp 00000000 00:00 0 
+b7393000-b753b000 r-xp 00000000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b753b000-b753d000 r-xp 001a7000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b753d000-b753e000 rwxp 001a9000 fc:00 240206     /lib/i386-linux-gnu/libc-2.19.so
+b753e000-b7541000 rwxp 00000000 00:00 0 
+b7541000-b755a000 r-xp 00000000 00:25 4172309    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libgcc_s.so.1
+b755a000-b755b000 rwxp 00019000 00:25 4172309    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libgcc_s.so.1
+b755b000-b759f000 r-xp 00000000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b759f000-b75a0000 r-xp 00043000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b75a0000-b75a1000 rwxp 00044000 fc:00 240211     /lib/i386-linux-gnu/libm-2.19.so
+b75a1000-b767b000 r-xp 00000000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
+b767b000-b767f000 r-xp 000da000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
+b767f000-b7680000 rwxp 000de000 00:25 4172313    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_lib/libstdc++.so.6
+b7680000-b7687000 rwxp 00000000 00:00 0 
+b7687000-b768a000 r-xp 00000000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b768a000-b768b000 r-xp 00002000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b768b000-b768c000 rwxp 00003000 fc:00 240203     /lib/i386-linux-gnu/libdl-2.19.so
+b768c000-b768e000 rwxp 00000000 00:00 0 
+b768e000-b7694000 rwxp 00000000 00:00 0 
+b7694000-b76aa000 r-xp 00000000 00:25 4172304    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libelf.so.0.8.13
+b76aa000-b76ab000 rwxp 00015000 00:25 4172304    /home/brandon/sde-external-7.8.0-2014-10-02-lin/ia32/pin_ext_lib/libelf.so.0.8.13
+b76ab000-b76b0000 rwxp 00000000 00:00 0 
+b76b0000-b76bc000 rwxp 00000000 00:00 0 
+b76bd000-b76c1000 rwxp 00000000 00:00 0 
+b76c1000-b76e1000 r-xp 00000000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+b76e1000-b76e2000 r-xp 0001f000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+b76e2000-b76e3000 rwxp 00020000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+b76e3000-b76e4000 r-xp 00000000 00:00 0          [vdso]
+b76e4000-b76e6000 r--p 00000000 00:00 0          [vvar]
+b76e6000-b7706000 r-xp 00000000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+b7706000-b7707000 r-xp 0001f000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+b7707000-b7708000 rwxp 00020000 fc:00 240218     /lib/i386-linux-gnu/ld-2.19.so
+bfed1000-bfef2000 rw-p 00000000 00:00 0 
