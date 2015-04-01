@@ -1,7 +1,9 @@
 #!/bin/bash
 
+set -e
+
 PYTHON=/usr/bin/python3.4
-SDE=~/sde-external-7.8.0-2014-10-02-lin/sde
+SDE=~/sde-external-7.15.0-2015-01-11-lin/sde
 
 LIB=stage/lib/$(basename $PYTHON)
 
